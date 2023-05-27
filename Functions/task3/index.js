@@ -1,5 +1,9 @@
-function getSum(a, b) {
-  return a + b;
+function getEvenOdd(num) {
+  if (num % 2 === 0) {
+    return 'even';
+  } else {
+    return 'odd';
+  }
 }
-const result = getSum(20, 10);
+const result = getEvenOdd(20);
 console.log(result);
