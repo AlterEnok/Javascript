@@ -1,6 +1,5 @@
-const getSquare = (num) => {
+const square = (num) => {
   return num * num;
 };
-
-const result = getSquare(5);
+const result = square(6);
 console.log(result);
