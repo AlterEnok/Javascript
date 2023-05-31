@@ -1,15 +1,18 @@
-const numbers = [11, 22, 33, 55, 66];
+function getSum(arr) {
+  if (!Array.isArray(arr)) {
+    return null;
+  }
 
-function sum(numbers) {
   let sumOfNumbers = 0;
-
-  for (let i = 0; i < numbers.length; i++) {
-    sumOfNumbers += numbers[i];
+  for (let i = 0; i < arr.length; i++) {
+    sumOfNumbers += arr[i];
   }
   return sumOfNumbers;
 }
-const sumOfElements = sum(numbers);
-console.log('Result: ' + sumOfElements);
+
+const numbers = [1, 10, -10, 4];
+const sumOfElements = getSum(numbers);
+console.log(sumOfElements);
 
 // const numbers = [11, 22, 33, 55, 66];
 
