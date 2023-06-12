@@ -3,11 +3,13 @@ function squareArray(arr) {
   if (!Array.isArray(arr)) {
     return null;
   }
-  const squareArr = arr.map((num) => num ** 2);
-  return squareArr;
+  const squaredArray = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const squaredNumber = arr[i] * arr[i];
+    squaredArray.push(squaredNumber);
+  }
+  return squaredArray;
 }
-
-const result = squareArray(numbers);
-
-console.log(numbers);
-console.log(result);
+const squaredNumbers = squareArray(numbers);
+console.log(squaredNumbers);
