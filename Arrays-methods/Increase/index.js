@@ -14,10 +14,9 @@
 // console.log(increaseEvenE1([2, 5, 6, 8, 11, 9, 4], 20));
 
 // compact code
-const increaseEvenl = (arr, delta) => {
+const increaseEvenEl = (arr, delta) => {
   return Array.isArray(arr)
     ? arr.map((num) => (num % 2 === 0 ? num + delta : num))
     : null;
 };
-
-console.log(increaseEvenl([2, 5, 6, 8, 11, 9, 4], 20));
+console.log(increaseEvenEl([2, 5, 6, 8, 11, 9, 4], 20));
