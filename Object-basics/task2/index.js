@@ -1,4 +1,4 @@
-// цикл фор и фор офф только для массиво. Для объектов только фор ин
+//  цикл фор и фор офф только для массиво. Для объектов только фор ин
 
 const concatProps = (obj) => {
   const arr = [];
@@ -11,3 +11,8 @@ const concatProps = (obj) => {
 };
 
 console.log(concatProps({ name: 'Edem Kestan', age: 20, interest: 'Policy' }));
+
+// compact code
+
+// const concatProps = (obj) => Object.values(obj);
+// console.log(concatProps({ name: 'Edem Kestan', age: 20, interest: 'Policy' }));
