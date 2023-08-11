@@ -1,4 +1,4 @@
-function setButton(buttonText) {
+export function setButton(buttonText) {
   const bodyElem = document.querySelector('body');
   if (bodyElem) {
     bodyElem.innerHTML = `<button>${buttonText}</button>`;
