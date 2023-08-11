@@ -1,25 +1,19 @@
 export function finishList() {
   const list = document.querySelector('.list');
 
-  for (let i = 1; i <= 8; i++) {
-    const listItem = document.createElement('li');
-    listItem.textContent = i;
+  const firstListItem = document.createElement('li');
+  firstListItem.textContent = '1';
+  list.prepend(firstListItem);
 
-    list.append(listItem);
+  const fourthListItem = document.createElement('li');
+  fourthListItem.textContent = '4';
+  list.children[2].after(fourthListItem);
 
-    if (i === 1) {
-      const firstItem = document.createElement('li');
-      firstItem.textContent = '1 - before';
-      list.prepend(firstItem);
-    }
+  const sixthListItem = document.createElement('li');
+  sixthListItem.textContent = '6';
+  list.children[5].before(sixthListItem);
 
-    if (i === 6) {
-      const newItem = document.createElement('li');
-      newItem.textContent = '6 - after special';
-      const specialItem = document.querySelector('.special');
-      specialItem.after(newItem);
-    }
-  }
+  const eighthListItem = document.createElement('li');
+  eighthListItem.textContent = '8';
+  list.append(eighthListItem);
 }
-
-finishList();
