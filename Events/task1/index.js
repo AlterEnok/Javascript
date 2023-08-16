@@ -8,8 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const attachButton = document.querySelector('.attach-handlers-btn');
   const removeButton = document.querySelector('.remove-handlers-btn');
 
-  const logTarget = (event, color) => {
-    const target = event.target.tagName.toLowerCase();
+  let greenDivCounter = 0;
+  let greyDivCounter = 0;
+  let greenPCounter = 0;
+  let greyPCounter = 0;
+  let greenSpanCounter = 0;
+  let greySpanCounter = 0;
+
+  const logTarget = (target, color) => {
     const span = document.createElement('span');
     span.style.color = color;
     span.style.marginLeft = '8px';
@@ -22,44 +28,52 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   attachButton.addEventListener('click', () => {
-    divElem.addEventListener('click', (event) => logTarget(event, 'green'));
-    divElem.addEventListener(
-      'click',
-      (event) => logTarget(event, 'grey'),
-      true
-    );
+    divElem.addEventListener('click', () => {
+      greenDivCounter++;
+      greyDivCounter++;
+      logTarget('div', 'green');
+      logTarget('div', 'grey');
+      if (greenDivCounter === 2) {
+        divElem.removeEventListener('click', logGreenDiv);
+      }
+      if (greyDivCounter === 2) {
+        divElem.removeEventListener('click', logGreyDiv, true);
+      }
+    });
 
-    pElem.addEventListener('click', (event) => logTarget(event, 'green'));
-    pElem.addEventListener('click', (event) => logTarget(event, 'grey'), true);
+    pElem.addEventListener('click', () => {
+      greenPCounter++;
+      greyPCounter++;
+      logTarget('p', 'green');
+      logTarget('p', 'grey');
+      if (greenPCounter === 4) {
+        pElem.removeEventListener('click', logGreenP);
+      }
+      if (greyPCounter === 4) {
+        pElem.removeEventListener('click', logGreyP, true);
+      }
+    });
 
-    spanElem.addEventListener('click', (event) => logTarget(event, 'green'));
-    spanElem.addEventListener(
-      'click',
-      (event) => logTarget(event, 'grey'),
-      true
-    );
+    spanElem.addEventListener('click', () => {
+      greenSpanCounter++;
+      greySpanCounter++;
+      logTarget('span', 'green');
+      logTarget('span', 'grey');
+      if (greenSpanCounter === 6) {
+        spanElem.removeEventListener('click', logGreenSpan);
+      }
+      if (greySpanCounter === 6) {
+        spanElem.removeEventListener('click', logGreySpan, true);
+      }
+    });
   });
 
   removeButton.addEventListener('click', () => {
-    divElem.removeEventListener('click', (event) => logTarget(event, 'green'));
-    divElem.removeEventListener(
-      'click',
-      (event) => logTarget(event, 'grey'),
-      true
-    );
-
-    pElem.removeEventListener('click', (event) => logTarget(event, 'green'));
-    pElem.removeEventListener(
-      'click',
-      (event) => logTarget(event, 'grey'),
-      true
-    );
-
-    spanElem.removeEventListener('click', (event) => logTarget(event, 'green'));
-    spanElem.removeEventListener(
-      'click',
-      (event) => logTarget(event, 'grey'),
-      true
-    );
+    divElem.removeEventListener('click', logGreenDiv);
+    divElem.removeEventListener('click', logGreyDiv, true);
+    pElem.removeEventListener('click', logGreenP);
+    pElem.removeEventListener('click', logGreyP, true);
+    spanElem.removeEventListener('click', logGreenSpan);
+    spanElem.removeEventListener('click', logGreySpan, true);
   });
 });
