@@ -8,7 +8,6 @@ const attachButton = document.querySelector('.attach-btn');
 const removeButton = document.querySelector('.remove-btn');
 
 const logTarget = (text, color) => {
-  const eventsListElem = document.querySelector('.events-list');
   eventsListElem.innerHTML += `<span style="color: ${color}; margin-left: 8px;">${text}</span>`;
 };
 
