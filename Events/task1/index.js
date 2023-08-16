@@ -29,21 +29,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   attachButton.addEventListener('click', () => {
     divElem.addEventListener('click', logGreenDiv);
-    pElem.addEventListener('click', logGreenP);
-    spanElem.addEventListener('click', logGreenSpan);
-
     divElem.addEventListener('click', logGrayDiv, true);
+
+    pElem.addEventListener('click', logGreenP);
     pElem.addEventListener('click', logGrayP, true);
+    pElem.addEventListener('click', logGrayP, true);
+    pElem.addEventListener('click', logGrayP, true);
+
+    spanElem.addEventListener('click', logGreenSpan);
+    spanElem.addEventListener('click', logGraySpan, true);
+    spanElem.addEventListener('click', logGraySpan, true);
+    spanElem.addEventListener('click', logGraySpan, true);
+    spanElem.addEventListener('click', logGraySpan, true);
     spanElem.addEventListener('click', logGraySpan, true);
   });
 
   removeButton.addEventListener('click', () => {
     divElem.removeEventListener('click', logGreenDiv);
-    pElem.removeEventListener('click', logGreenP);
-    spanElem.removeEventListener('click', logGreenSpan);
-
     divElem.removeEventListener('click', logGrayDiv, true);
+
+    pElem.removeEventListener('click', logGreenP);
     pElem.removeEventListener('click', logGrayP, true);
+    pElem.removeEventListener('click', logGrayP, true);
+    pElem.removeEventListener('click', logGrayP, true);
+
+    spanElem.removeEventListener('click', logGreenSpan);
+    spanElem.removeEventListener('click', logGraySpan, true);
+    spanElem.removeEventListener('click', logGraySpan, true);
+    spanElem.removeEventListener('click', logGraySpan, true);
+    spanElem.removeEventListener('click', logGraySpan, true);
     spanElem.removeEventListener('click', logGraySpan, true);
   });
 });
