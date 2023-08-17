@@ -20,198 +20,54 @@
 // spanElem.addEventListener('click', logGreySpan);
 // spanElem.addEventListener('click', logGreenSpan);
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const divElem = document.querySelector('.rect_div');
-//   const pElem = document.querySelector('.rect_p');
-//   const spanElem = document.querySelector('.rect_span');
-//   const eventsListElem = document.querySelector('.events-list');
-
-//   const logTarget = (text, color) => {
-//     const eventsListElem = document.querySelector('.events-list');
-//     eventsListElem.innerHTML += `<span style="color: ${color}; margin-left: 8px;">${text}</span>`;
-//   };
-
-//   const clearButton = document.querySelector('.clear-btn');
-//   clearButton.addEventListener('click', () => {
-//     eventsListElem.innerHTML = '';
-//   });
-
-//   const attachButton = document.querySelector('.attach-handlers-btn');
-//   attachButton.addEventListener('click', () => {
-//     divElem.addEventListener(
-//       'click',
-//       logTarget.bind(null, 'div', 'grey'),
-//       true
-//     );
-//     divElem.addEventListener('click', logTarget.bind(null, 'div', 'green'));
-
-//     pElem.addEventListener('click', logTarget.bind(null, 'p', 'grey'), true);
-//     pElem.addEventListener('click', logTarget.bind(null, 'p', 'green'));
-
-//     spanElem.addEventListener('click', logTarget.bind(null, 'span', 'grey'));
-//     spanElem.addEventListener('click', logTarget.bind(null, 'span', 'green'));
-//   });
-
-//   const removeButton = document.querySelector('.remove-handlers-btn');
-//   removeButton.addEventListener('click', () => {
-//     divElem.removeEventListener(
-//       'click',
-//       logTarget.bind(null, 'div', 'grey'),
-//       true
-//     );
-//     divElem.removeEventListener('click', logTarget.bind(null, 'div', 'green'));
-
-//     pElem.removeEventListener('click', logTarget.bind(null, 'p', 'grey'), true);
-//     pElem.removeEventListener('click', logTarget.bind(null, 'p', 'green'));
-
-//     spanElem.removeEventListener('click', logTarget.bind(null, 'span', 'grey'));
-//     spanElem.removeEventListener(
-//       'click',
-//       logTarget.bind(null, 'span', 'green')
-//     );
-//   });
-// });
 document.addEventListener('DOMContentLoaded', () => {
   const divElem = document.querySelector('.rect_div');
   const pElem = document.querySelector('.rect_p');
   const spanElem = document.querySelector('.rect_span');
   const eventsListElem = document.querySelector('.events-list');
+
+  const logTarget = (text, color) => {
+    const eventsListElem = document.querySelector('.events-list');
+    eventsListElem.innerHTML += `<span style="color: ${color}; margin-left: 8px;">${text}</span>`;
+  };
+
   const clearButton = document.querySelector('.clear-btn');
-  const attachButton = document.querySelector('.attach-handlers-btn');
-  const removeButton = document.querySelector('.remove-handlers-btn');
-
-  const logTarget = (target, phase, color) => {
-    const span = document.createElement('span');
-    span.style.color = color;
-    span.style.marginLeft = '8px';
-    span.textContent = `${target} ${phase}`;
-    eventsListElem.appendChild(span);
-  };
-
-  const attachHandlers = () => {
-    divElem.addEventListener(
-      'click',
-      logTarget.bind(null, 'div', 'capture', 'grey'),
-      true
-    );
-    divElem.addEventListener(
-      'click',
-      logTarget.bind(null, 'div', 'bubble', 'green')
-    );
-
-    pElem.addEventListener(
-      'click',
-      logTarget.bind(null, 'p', 'capture', 'grey'),
-      true
-    );
-    pElem.addEventListener(
-      'click',
-      logTarget.bind(null, 'p', 'bubble', 'green')
-    );
-    pElem.addEventListener(
-      'click',
-      logTarget.bind(null, 'p', 'bubble', 'green')
-    );
-    pElem.addEventListener(
-      'click',
-      logTarget.bind(null, 'p', 'bubble', 'green')
-    );
-    pElem.addEventListener(
-      'click',
-      logTarget.bind(null, 'p', 'bubble', 'green')
-    );
-
-    spanElem.addEventListener(
-      'click',
-      logTarget.bind(null, 'span', 'bubble', 'green')
-    );
-    spanElem.addEventListener(
-      'click',
-      logTarget.bind(null, 'span', 'bubble', 'green')
-    );
-    spanElem.addEventListener(
-      'click',
-      logTarget.bind(null, 'span', 'bubble', 'green')
-    );
-    spanElem.addEventListener(
-      'click',
-      logTarget.bind(null, 'span', 'bubble', 'green')
-    );
-    spanElem.addEventListener(
-      'click',
-      logTarget.bind(null, 'span', 'bubble', 'green')
-    );
-    spanElem.addEventListener(
-      'click',
-      logTarget.bind(null, 'span', 'bubble', 'green')
-    );
-  };
-
-  const removeHandlers = () => {
-    divElem.removeEventListener(
-      'click',
-      logTarget.bind(null, 'div', 'capture', 'grey'),
-      true
-    );
-    divElem.removeEventListener(
-      'click',
-      logTarget.bind(null, 'div', 'bubble', 'green')
-    );
-
-    pElem.removeEventListener(
-      'click',
-      logTarget.bind(null, 'p', 'capture', 'grey'),
-      true
-    );
-    pElem.removeEventListener(
-      'click',
-      logTarget.bind(null, 'p', 'bubble', 'green')
-    );
-    pElem.removeEventListener(
-      'click',
-      logTarget.bind(null, 'p', 'bubble', 'green')
-    );
-    pElem.removeEventListener(
-      'click',
-      logTarget.bind(null, 'p', 'bubble', 'green')
-    );
-    pElem.removeEventListener(
-      'click',
-      logTarget.bind(null, 'p', 'bubble', 'green')
-    );
-
-    spanElem.removeEventListener(
-      'click',
-      logTarget.bind(null, 'span', 'bubble', 'green')
-    );
-    spanElem.removeEventListener(
-      'click',
-      logTarget.bind(null, 'span', 'bubble', 'green')
-    );
-    spanElem.removeEventListener(
-      'click',
-      logTarget.bind(null, 'span', 'bubble', 'green')
-    );
-    spanElem.removeEventListener(
-      'click',
-      logTarget.bind(null, 'span', 'bubble', 'green')
-    );
-    spanElem.removeEventListener(
-      'click',
-      logTarget.bind(null, 'span', 'bubble', 'green')
-    );
-    spanElem.removeEventListener(
-      'click',
-      logTarget.bind(null, 'span', 'bubble', 'green')
-    );
-  };
-
-  attachHandlers();
-
   clearButton.addEventListener('click', () => {
     eventsListElem.innerHTML = '';
   });
 
-  attachButton.addEventListener('click', attachHandlers);
-  removeButton.addEventListener('click', removeHandlers);
+  const attachButton = document.querySelector('.attach-handlers-btn');
+  attachButton.addEventListener('click', () => {
+    divElem.addEventListener(
+      'click',
+      logTarget.bind(null, 'div', 'grey'),
+      true
+    );
+    divElem.addEventListener('click', logTarget.bind(null, 'div', 'green'));
+
+    pElem.addEventListener('click', logTarget.bind(null, 'p', 'grey'), true);
+    pElem.addEventListener('click', logTarget.bind(null, 'p', 'green'));
+
+    spanElem.addEventListener('click', logTarget.bind(null, 'span', 'grey'));
+    spanElem.addEventListener('click', logTarget.bind(null, 'span', 'green'));
+  });
+
+  const removeButton = document.querySelector('.remove-handlers-btn');
+  removeButton.addEventListener('click', () => {
+    divElem.removeEventListener(
+      'click',
+      logTarget.bind(null, 'div', 'grey'),
+      true
+    );
+    divElem.removeEventListener('click', logTarget.bind(null, 'div', 'green'));
+
+    pElem.removeEventListener('click', logTarget.bind(null, 'p', 'grey'), true);
+    pElem.removeEventListener('click', logTarget.bind(null, 'p', 'green'));
+
+    spanElem.removeEventListener('click', logTarget.bind(null, 'span', 'grey'));
+    spanElem.removeEventListener(
+      'click',
+      logTarget.bind(null, 'span', 'green')
+    );
+  });
 });
