@@ -11,27 +11,25 @@ const taskInputElem = document.querySelector('.task-input');
 const createTaskBtnElem = document.querySelector('.create-task-btn');
 
 const renderTasks = (tasksList) => {
-  listElem.innerHTML = '';
+  listElem.innerHTML = ''; // Clear the list before rendering
 
-  const tasksElems = tasksList
-    .sort((a, b) => a.done - b.done)
-    .map(({ id, text, done }) => {
-      const listItemElem = document.createElement('li');
-      listItemElem.classList.add('list__item');
-      const checkbox = document.createElement('input');
-      checkbox.setAttribute('type', 'checkbox');
-      checkbox.dataset.taskId = id;
-      checkbox.checked = done;
-      checkbox.classList.add('list__item-checkbox');
-      if (done) {
-        listItemElem.classList.add('list__item_done');
-      }
-      listItemElem.append(checkbox, text);
+  const tasksElems = tasksList.map(({ id, text, done }) => {
+    const listItemElem = document.createElement('li');
+    listItemElem.classList.add('list__item');
+    const checkbox = document.createElement('input');
+    checkbox.setAttribute('type', 'checkbox');
+    checkbox.dataset.taskId = id; // Set the task's id as a data attribute
+    checkbox.checked = done;
+    checkbox.classList.add('list__item-checkbox');
+    if (done) {
+      listItemElem.classList.add('list__item_done');
+    }
+    listItemElem.append(checkbox, text);
 
-      checkbox.addEventListener('change', handleCheckboxChange);
+    checkbox.addEventListener('change', handleCheckboxChange);
 
-      return listItemElem;
-    });
+    return listItemElem;
+  });
 
   listElem.append(...tasksElems);
 };
